@@ -1,0 +1,30 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block page_title  %}
+Inscription pour la cantine
+{% endblock %}
+
+{% block page_actions %}Valider{% endblock %}
+
+{% block page_content %}
+<table class="datagrid table-striped">
+    <thead>
+    <tr>
+        <th><span>Date</span></th>
+        {% for enfant in enfants %}
+        <th><span>{{ enfant.enfant.prenom }}</span></th>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    {% for date in dates %}
+    <tr >
+        <td>{{ date|format_date('medium') }}</td>
+        {% for enfant in enfants %}
+        <td>{% if not date.isWeekEnd %}<input type="checkbox" class="form-batch-checkbox">{% endif %}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

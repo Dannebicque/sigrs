@@ -1,0 +1,14 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block page_title  %}
+    Bienvenue sur le site du SIGRS
+{% endblock %}
+
+{% block main %}
+    {% if is_granted('ROLE_PARENT') %}
+        {{ render(path('dashboard_parent')) }}
+    {% elseif is_granted('ROLE_ADMIN') %}
+            ROLE Admin
+            {{ render(path('dashboard_admin')) }}
+    {% endif %}
+{% endblock %}

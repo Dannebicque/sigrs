@@ -1,0 +1,11 @@
+<div class="row">
+    {% for enfant in enfants %}
+        <div class="col-sm-12 col-md-6">
+            <div class="content-panel ">
+                <div class="content-panel-body without-header without-footer">
+                    <h1>{{ enfant.enfant.prenom }}</h1>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
